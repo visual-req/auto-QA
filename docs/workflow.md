@@ -1,5 +1,7 @@
 # Workflow
 
+![workflow](assets/workflow.svg)
+
 1. 准备项目材料：放入 `work/inputs/<project>/...`
 2. 导入规则：在“规则”页上传规则 Excel
 3. 开始扫描：在“项目”页选择目录并开始扫描
