@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="360" viewBox="0 0 1100 360">
+  <defs>
+    <style>
+      .title { font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif; fill: #0f172a; }
+      .label { font: 600 14px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif; fill: #0f172a; }
+      .text { font: 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif; fill: #0f172a; }
+      .muted { font: 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif; fill: #475569; }
+      .cell { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1; }
+      .header { fill: #f1f5f9; stroke: #cbd5e1; stroke-width: 1; }
+      .frame { fill: #ffffff; stroke: #94a3b8; stroke-width: 1.5; rx: 10; }
+    </style>
+  </defs>
+
+  <rect x="20" y="20" width="1060" height="320" class="frame"/>
+  <text x="44" y="58" class="title">rules.xlsx 模板格式（每个 Sheet 代表一个阶段，每行一条规则）</text>
+  <text x="44" y="86" class="muted">示例 Sheet：测试阶段</text>
+
+  <g transform="translate(44,110)">
+    <rect x="0" y="0" width="1012" height="44" class="header"/>
+    <rect x="0" y="44" width="1012" height="60" class="cell"/>
+
+    <line x1="200" y1="0" x2="200" y2="104" stroke="#cbd5e1" stroke-width="1"/>
+    <line x1="600" y1="0" x2="600" y2="104" stroke="#cbd5e1" stroke-width="1"/>
+    <line x1="770" y1="0" x2="770" y2="104" stroke="#cbd5e1" stroke-width="1"/>
+    <line x1="890" y1="0" x2="890" y2="104" stroke="#cbd5e1" stroke-width="1"/>
+
+    <text x="12" y="28" class="label">规则名称</text>
+    <text x="212" y="28" class="label">检查要点</text>
+    <text x="612" y="28" class="label">检查对象（内容/文件名）</text>
+    <text x="782" y="28" class="label">严重性（高/中/低）</text>
+    <text x="902" y="28" class="label">后缀（可空，逗号分隔）</text>
+
+    <text x="12" y="74" class="text">测试报告是否齐全</text>
+    <text x="212" y="68" class="text">提供《测试报告》并包含主要结论、问题列表与回归结果</text>
+    <text x="612" y="74" class="text">内容</text>
+    <text x="782" y="74" class="text">高</text>
+    <text x="902" y="74" class="text">.docx,.pdf</text>
+  </g>
+
+  <text x="44" y="258" class="muted">说明：列名允许存在少量差异，系统会按表头自动识别；建议直接使用下载模板，避免匹配失败。</text>
+  <text x="44" y="282" class="muted">检查对象：内容=会提取正文并调用大模型；文件名=以交付物存在/命名为主。</text>
+</svg>
+

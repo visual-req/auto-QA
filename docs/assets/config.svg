@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="420" viewBox="0 0 1100 420">
+  <defs>
+    <style>
+      .title { font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif; fill: #0f172a; }
+      .label { font: 600 14px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif; fill: #0f172a; }
+      .text { font: 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif; fill: #0f172a; }
+      .muted { font: 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif; fill: #475569; }
+      .cell { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1; }
+      .header { fill: #f1f5f9; stroke: #cbd5e1; stroke-width: 1; }
+      .frame { fill: #ffffff; stroke: #94a3b8; stroke-width: 1.5; rx: 10; }
+      .ok { fill: #16a34a; font: 700 14px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif; }
+    </style>
+  </defs>
+
+  <rect x="20" y="20" width="1060" height="380" class="frame"/>
+  <text x="44" y="58" class="title">config.xlsx 模板格式（Sheet=阶段，行=项目，列=检查项，单元格打勾表示启用）</text>
+  <text x="44" y="86" class="muted">示例 Sheet：业务需求阶段</text>
+
+  <g transform="translate(44,110)">
+    <rect x="0" y="0" width="1012" height="44" class="header"/>
+    <rect x="0" y="44" width="1012" height="180" class="cell"/>
+
+    <line x1="160" y1="0" x2="160" y2="224" stroke="#cbd5e1" stroke-width="1"/>
+    <line x1="430" y1="0" x2="430" y2="224" stroke="#cbd5e1" stroke-width="1"/>
+    <line x1="700" y1="0" x2="700" y2="224" stroke="#cbd5e1" stroke-width="1"/>
+    <line x1="860" y1="0" x2="860" y2="224" stroke="#cbd5e1" stroke-width="1"/>
+
+    <line x1="0" y1="104" x2="1012" y2="104" stroke="#cbd5e1" stroke-width="1"/>
+    <line x1="0" y1="164" x2="1012" y2="164" stroke="#cbd5e1" stroke-width="1"/>
+
+    <text x="12" y="28" class="label">系统编号</text>
+    <text x="172" y="28" class="label">需求跟踪矩阵齐全</text>
+    <text x="442" y="28" class="label">需求规格说明书齐全</text>
+    <text x="712" y="28" class="label">评审意见表齐全</text>
+    <text x="872" y="28" class="label">（可继续加列）</text>
+
+    <text x="12" y="78" class="text">W0201C</text>
+    <text x="222" y="78" class="ok">√</text>
+    <text x="492" y="78" class="ok">√</text>
+
+    <text x="12" y="138" class="text">PD0002</text>
+    <text x="222" y="138" class="ok">√</text>
+    <text x="762" y="138" class="ok">√</text>
+
+    <text x="12" y="198" class="text">（更多项目…）</text>
+  </g>
+
+  <text x="44" y="352" class="muted">说明：检查项列名需要能匹配 rules.xlsx 中的“检查要点/检查项/规则名称”之一（建议直接复制粘贴）。</text>
+  <text x="44" y="376" class="muted">单元格可填：√ / 1 / true / 是 / 需要 等；为空或 0/否 表示不启用。</text>
+</svg>
+
