@@ -58,6 +58,8 @@ const issuesColumns = [
             >
               <a-button type="primary" :loading="store.importingConfig.value">导入配置 Excel</a-button>
             </a-upload>
+            <a-button @click="store.downloadConfigTemplate">下载模板</a-button>
+            <a-button @click="store.downloadConfigExample">下载示例</a-button>
             <a-typography-text type="secondary">已配置项目：{{ Object.keys(store.projectRuleStages.value || {}).length }}</a-typography-text>
           </a-space>
 

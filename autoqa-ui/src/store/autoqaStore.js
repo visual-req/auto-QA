@@ -2284,6 +2284,106 @@ export function createAutoQaStore() {
     XLSX.writeFile(wb, name)
   }
 
+  const templateStageNames = ['业务需求阶段', '设计开发阶段', '测试阶段', '投产阶段', '运维阶段']
+
+  function aoaSheet(rows, colWidths) {
+    const ws = XLSX.utils.aoa_to_sheet(rows)
+    if (Array.isArray(colWidths) && colWidths.length) ws['!cols'] = colWidths.map((wch) => ({ wch }))
+    return ws
+  }
+
+  function downloadRulesTemplate() {
+    const wb = XLSX.utils.book_new()
+    const header = ['规则名称', '检查要点', '检查对象（内容/文件名）', '严重性（高/中/低）', '后缀（可空，逗号分隔）']
+    const widths = [20, 56, 20, 16, 26]
+    for (const stage of templateStageNames) {
+      const ws = aoaSheet([header], widths)
+      XLSX.utils.book_append_sheet(wb, ws, stage)
+    }
+    XLSX.writeFile(wb, 'autoqa-rules-template.xlsx')
+  }
+
+  function downloadRulesExample() {
+    const wb = XLSX.utils.book_new()
+    const header = ['规则名称', '检查要点', '检查对象（内容/文件名）', '严重性（高/中/低）', '后缀（可空，逗号分隔）']
+    const widths = [20, 56, 20, 16, 26]
+    const exampleRowsByStage = {
+      业务需求阶段: [
+        ['需求跟踪矩阵齐全', '提供《需求跟踪矩阵》，覆盖需求到设计/测试的追踪关系', '内容', '高', '.xlsx']
+      ],
+      设计开发阶段: [['概要设计说明书齐全', '提供《概要设计说明书》并包含总体架构/关键设计说明', '文件名', '中', '.docx,.pdf']],
+      测试阶段: [['测试报告是否齐全', '提供《测试报告》并包含主要结论、问题列表与回归结果', '内容', '高', '.docx,.pdf']],
+      投产阶段: [['上线变更记录', '提供《上线/投产变更记录》并包含变更内容与审批信息', '文件名', '中', '.docx,.pdf,.xlsx']],
+      运维阶段: [['运维手册', '提供《运维手册》并包含日常巡检/告警处理/应急流程', '内容', '中', '.docx,.pdf']]
+    }
+    for (const stage of templateStageNames) {
+      const body = exampleRowsByStage?.[stage] || []
+      const ws = aoaSheet([header, ...body], widths)
+      XLSX.utils.book_append_sheet(wb, ws, stage)
+    }
+    XLSX.writeFile(wb, 'autoqa-rules-example.xlsx')
+  }
+
+  function downloadConfigTemplate() {
+    const wb = XLSX.utils.book_new()
+    const header = ['系统编号', '检查项1（填规则检查要点/检查项）', '检查项2', '检查项3']
+    const widths = [16, 34, 22, 22]
+    for (const stage of templateStageNames) {
+      const ws = aoaSheet([header], widths)
+      XLSX.utils.book_append_sheet(wb, ws, stage)
+    }
+    XLSX.writeFile(wb, 'autoqa-config-template.xlsx')
+  }
+
+  function downloadConfigExample() {
+    const wb = XLSX.utils.book_new()
+    const widths = [16, 26, 26, 26]
+    const make = (header, rows) => aoaSheet([header, ...rows], widths)
+    const projA = 'W0201C'
+    const projB = 'PD0002'
+    XLSX.utils.book_append_sheet(
+      wb,
+      make(['系统编号', '需求跟踪矩阵齐全', '需求规格说明书齐全', '评审意见表齐全'], [
+        [projA, '√', '√', ''],
+        [projB, '√', '', '√']
+      ]),
+      '业务需求阶段'
+    )
+    XLSX.utils.book_append_sheet(
+      wb,
+      make(['系统编号', '概要设计说明书齐全', '详细设计说明书齐全', '数据库设计说明书齐全'], [
+        [projA, '√', '√', ''],
+        [projB, '√', '', '√']
+      ]),
+      '设计开发阶段'
+    )
+    XLSX.utils.book_append_sheet(
+      wb,
+      make(['系统编号', '测试用例齐全', '测试报告是否齐全', '缺陷清单齐全'], [
+        [projA, '√', '√', ''],
+        [projB, '', '√', '√']
+      ]),
+      '测试阶段'
+    )
+    XLSX.utils.book_append_sheet(
+      wb,
+      make(['系统编号', '上线变更记录', '回退方案齐全', '发布检查清单齐全'], [
+        [projA, '√', '√', ''],
+        [projB, '√', '', '√']
+      ]),
+      '投产阶段'
+    )
+    XLSX.utils.book_append_sheet(
+      wb,
+      make(['系统编号', '运维手册', '应急预案齐全', '巡检记录齐全'], [
+        [projA, '√', '', '√'],
+        [projB, '√', '√', '']
+      ]),
+      '运维阶段'
+    )
+    XLSX.writeFile(wb, 'autoqa-config-example.xlsx')
+  }
+
   function buildFileTreeData(paths) {
     const root = new Map()
 
@@ -2595,6 +2695,10 @@ export function createAutoQaStore() {
     canStart,
     startScan,
     downloadExcel,
+    downloadRulesTemplate,
+    downloadRulesExample,
+    downloadConfigTemplate,
+    downloadConfigExample,
     buildTopEntries,
     severityLabel,
     severityColor,

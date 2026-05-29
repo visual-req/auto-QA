@@ -259,6 +259,8 @@ const rulesImportIssueColumns = [
             >
               <a-button type="primary" :loading="store.importingRules.value">选择 Excel 并导入</a-button>
             </a-upload>
+            <a-button @click="store.downloadRulesTemplate">下载模板</a-button>
+            <a-button @click="store.downloadRulesExample">下载示例</a-button>
             <a-typography-text type="secondary">已解析规则：{{ store.rules.value.length }}</a-typography-text>
             <a-button @click="addRule">新增规则</a-button>
             <a-button @click="reloadFromWork">重新加载</a-button>
