@@ -18,6 +18,3 @@
 ## 下载报告（Excel）
 
 在“扫描结果”区域点击「下载报告(Excel)」，导出当前筛选后的不符合项列表。
-
-## 工作流程（SVG）
-工作流程图：docs/assets/workflow.svg
