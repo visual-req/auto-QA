@@ -9,7 +9,7 @@
 - 使用手册（含证据区/导出 Excel）：[docs/manual.md](docs/manual.md)
 - 工作流程：[docs/workflow.md](docs/workflow.md)
 - 配置说明（为什么需要 config.xlsx）：[docs/config.md](docs/config.md)
-- 大模型配置（DeepSeek 示例）：[docs/config/llm.md](docs/config/llm.md)
+- 大模型配置（DeepSeek 示例）：[docs/llm.md](docs/llm.md)
 - 交付与部署（Docker/二进制/自启动）：[docs/executable.md](docs/executable.md)
 
 ## 定位
