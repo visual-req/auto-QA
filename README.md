@@ -9,6 +9,8 @@
 - 使用手册（含证据区/导出 Excel）：[docs/manual.md](docs/manual.md)
 - 工作流程：[docs/workflow.md](docs/workflow.md)
 - 扫描过程（项目编号/缺少文件/正文解析）：[docs/scan.md](docs/scan.md)
+- 企业自定义与优化（fork）：[docs/fork.md](docs/fork.md)
+- 幻觉与调优（识别错误处理）：[docs/hallucination.md](docs/hallucination.md)
 - 配置说明（为什么需要 config.xlsx）：[docs/config.md](docs/config.md)
 - 大模型配置（DeepSeek 示例）：[docs/config/llm.md](docs/config/llm.md)
 - 交付与部署（Docker/二进制/自启动）：[docs/executable.md](docs/executable.md)
